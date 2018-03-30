@@ -1,0 +1,84 @@
+l_english:
+
+### Opinion Modifiers ###
+
+### Ideas ###
+
+TUR_Ottoman_Legacy:0 "Ottoman Legacy"     
+TUR_Ottoman_Legacy_desc:0 "The Prior Empire's Legacy has a huge impact on the turkish nation."
+TUR_Halk_için_idea:0 "For The Insanlar"
+TUR_Halk_için_idea_desc:0 "our soldiers should feel a sense of pride for protecting their people!"                        
+                 
+### Tooltips ###
+tur_CivilWar_tt:0 "§RDetermining the ammount of reforms you put in or did not put in can lead to a potential coup against your new totalist regime.§!\n"
+                 
+### Parties ###
+TUR_totalist_party:0 "DHP"
+TUR_totalist_party_long:0 "Devrimci Halk Partisi"
+TUR_syndicalist_party:0 "TSP"
+TUR_syndicalist_party_long:0 "Türkiye Sendikalist Partisi"
+TUR_radical_socialist_party:0 "HKP"
+TUR_radical_socialist_party_long:0 "Halkın Kurtuluş Partisi"
+TUR_social_democrat_party:0 "SDP"
+TUR_social_democrat_party_long:0 "Sosyal Demokrat Parti"
+TUR_social_liberal_party:0 "SCP"
+TUR_social_liberal_party_long:0 "Serbest Cumhuriyet Partisi"
+TUR_market_liberal_party:0 "DP"
+TUR_market_liberal_party_long:0 "Demokrat Parti"
+TUR_social_conservative_party:0 "MP"
+TUR_social_conservative_party_long:0 "Millet Partisi"
+TUR_authoritarian_democrat_party:0 "CHP"
+TUR_authoritarian_democrat_party_long:0 "Cumhuriyet Halk Partisi"
+TUR_paternal_autocrat_party:0 "MNP"
+TUR_paternal_autocrat_party_long:0 "Millî Nizam Partisi"
+TUR_national_populist_party:0 "Bozkurtlar"
+TUR_national_populist_party_long:0 "Bozkurtlar Grubu"
+
+### Events ###
+
+turkey.1.t:0 "Turkish War for Revolution!!!"
+turkey.1.d:0 "The latest disasters suffered by our country have proved that our tyrannical leadership is completely incompetent and unfit to rule. A group of Pashas are now attemting to destroy the empire and establish a Turkish natiuon!!!."
+turkey.1.a:0 "Down with the Sultan! up with the Turks!!!"
+turkey.1.b:0 "Down with the Traitors!!! The Sultan is law!!!"
+
+turkey.2.t:0 "Future of Turkey"
+turkey.2.d:0 "After the catastrophes of the last years there's no doubt that Ottoman Empire cannot exist much longer. A group of radical officers announced the creation of a new country - the Republic of Turkey, but the future of this country is still unknown. Various cliques within the armed forces are locked in a struggle to gain control of the situation..."
+turkey.2.a:0 "Nihal Atsız will lead the broken nation to revenge!"
+turkey.2.b:0 "Şefik Hüsnü will introduce syndicalism!"
+turkey.2.c:0 "Turkey needs unity and stability."
+
+turkey.8.t:0 "The First Turkish Congress"
+turkey.8.d:0 "After being suppressed and under the boot of the Ottoman Empire we have finally obtained freedom from them. And to show our freedom the hosting of the first ever Turkish Congress shall commence!"
+turkey.8.a:0 "Resat Fuat, The Totalist!"
+turkey.8.b:0 "Sefik Husnu, The father of turkish syndicalism!"
+turkey.8.c:0 "Hikmet Kıvılcımlı, The Radical-socialist!"
+
+turkey.9.t:0 "The Question of Capital"
+turkey.9.d:0 "With the privious capital being in the city of Instanbul a question has occured wether or not to move the capital to the more secure city of Ankara."
+turkey.9.a:0 "Keep the capital at Instanbul"
+turkey.9.b:0 "Move the capital to Ankara"
+
+turkey.10.t:0 "The First Turkish Election"
+turkey.10.d:0 "After being suppressed and under the boot of the Ottoman Empire we have finally obtained freedom from them. And to show our freedom the  first ever Turkish Elections shall commence!"
+turkey.10.a:0 "Fethi Okyar, The Liberal!"
+turkey.10.c:0 "Ismet İnönü, Our Liberator!"
+turkey.10.f:0 "Yusuf Hikmet, The Conservative!"
+
+turkey.11.t:0 "The Bosporus Plan"
+turkey.11.d:0 "With Democracy in our nation its time to stengthen our economy! To do this a purposed plan to help remove stress on the Bosporus straits will start aiming to creating the new Channel canal!"
+turkey.11.a:0 "Let's get this going!"
+
+turkey.12.t:0 "The Channel Canal Complete!"
+turkey.12.d:0 "Finally After two long years of hard work the canal has been finsihed!"
+turkey.12.a:0 "Hurrah!"
+
+turkey.13.t:0 "The Grand Turkish Railroad"
+turkey.13.d:0 "To help our economy even more the construction of the Grand Turkish Railorad has been purposed. Its goal is to connect the Major Cities of Anatolia for transportation of goods, civilians, and soldiers!"
+turkey.13.a:0 "Wonderful!"
+
+turkey.14.t:0 "A New Leader for Turkey."
+turkey.14.d:0 "After being suppressed and under the boot of the Ottoman Empire we have finally obtained freedom from them. But Now who should lead our new Pan Turkish Nation?"
+turkey.14.a:0 "Pasha Ismail Enver, The War Hero!!!"
+turkey.14.b:0 "Pasha Nihal Atsiz, The Politician!!!"
+
+### Focuses ###
