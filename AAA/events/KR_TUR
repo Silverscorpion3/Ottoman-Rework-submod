@@ -1,0 +1,783 @@
+###########################
+# Republic of Turkey Events
+###########################
+# By Silverscorpion
+###########################
+
+add_namespace = turkey
+
+### Armed Putsch
+
+country_event = {
+	id = turkey.1
+	title = turkey.1.t
+	desc = turkey.1.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = OTT
+		date > 1938.11.11
+		NOT = { has_country_flag = ott_osmanlyasfuck }
+		is_puppet = no
+		OR = {
+			has_war = no
+			AND = {
+				has_war = yes
+				all_neighbor_country = {
+					NOT = {
+						has_war_with = OTT
+					}
+				}
+			}
+		}
+		OR = {
+			has_country_flag = ott_broken
+			#has_political_power < -600 don't think it should really matter if you haven't lost to the arabs
+			AND = {
+				NOT = {
+					AND = {
+						owns_state = 773
+						owns_state = 49
+						owns_state = 339
+						owns_state = 344
+						owns_state = 355
+					}
+				}
+				OR = {
+					NOT = { owns_state = 291 }
+					NOT = { owns_state = 554 }
+				}
+			}	
+			NOT = {
+				OR = {
+					owns_state = 291
+					owns_state = 554
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = {
+		name = turkey.1.a
+		
+		hidden_effect = { 
+			TUR = { 
+				add_state_core = 341
+				add_state_core = 773
+				add_state_core = 774
+				add_state_core = 340
+				add_state_core = 339
+				add_state_core = 342
+				add_state_core = 343
+				add_state_core = 345
+				add_state_core = 346
+				add_state_core = 49
+				add_state_core = 347
+				add_state_core = 348
+				add_state_core = 356
+				add_state_core = 344
+				add_state_core = 355
+				add_state_core = 349
+				add_state_core = 354
+				add_state_core = 350
+				add_state_core = 353
+				add_state_core = 352
+			}
+		}
+
+		hidden_effect = {
+			TUR = {
+				drop_cosmetic_tag = yes
+				transfer_state = 49
+				set_capital = 49
+				49 = {
+					set_state_category = city
+				}
+				transfer_technology = yes
+				add_political_power = 50
+				### Field Marshal
+				create_field_marshal = {
+					name = "Kâzım Karabekir"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Musa_Kazim.tga"
+					traits = {}
+					skill = 3
+				}
+
+				create_field_marshal = {
+					name = "Fevzi Çakmak"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Mustafa_Fevzi.tga"
+					traits = {}
+					skill = 2
+				}
+
+				create_field_marshal = {
+					name = "Cevat Çobanlı"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Ismail_Cevat.tga"
+					traits = {
+						old_guard
+					}
+					skill = 3
+				}
+
+				### Corps Commander
+
+
+				create_corps_commander = {
+					name = "Ömer Fahrettin Türkkan"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Omer_Fahrettin.tga"
+					traits = {
+						desert_fox
+						commando
+						old_guard
+					}
+					skill = 2
+				}
+
+				create_corps_commander = {
+					name = "Cemal Mersinli"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Mehmed_Cemal.tga"
+					traits = {}
+					skill = 2
+				}
+
+				create_corps_commander = {
+					name = "Cafer Tayyar Eğilmez"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Cafer_Tayyar.tga"
+					traits = {}
+					skill = 3
+				}
+
+				create_corps_commander = {
+					name = "Fahrettin Altay"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Fahrettin.tga"
+					traits = {
+						panzer_leader
+						trickster
+					}
+					skill = 3
+				}
+
+				create_corps_commander = {
+					name = "Selahattin Adil"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Selahattin.tga"
+					traits = {
+						panzer_leader
+					}
+					skill = 1
+				}
+
+				create_corps_commander = {
+					name = "Naci Eldeniz"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Abdullatif_Naci.tga"
+					traits = {
+						trait_engineer
+					}
+					skill = 2
+				}
+
+				create_corps_commander = {
+					name = "İsmail Hakkı Berkok"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Ismail_Hakki.tga"
+					traits = {
+						winter_specialist
+						commando
+					}
+					skill = 4
+				}
+
+				create_corps_commander = {
+					name = "Nuri Berköz"
+					portrait_path = "gfx/leaders/OTT/Portrait_OTT_Mehmet_Nuri.tga"
+					traits = {
+						trait_mountaineer
+					}
+					skill = 3
+				}
+
+			}
+		}
+		TUR = {
+			change_tag_from = OTT
+		}
+		TUR = {
+			annex_country = {
+				target = OTT transfer_troops = yes
+			}
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_claimed_by = OTT
+				}
+				remove_claim_by = OTT
+			}
+			TUR = {
+				if = {
+					limit = {
+						owns_state = 291
+						owns_state = 554
+						owns_state = 454
+					}
+					set_country_flag = LEV_CONQ
+				}
+			}
+			TUR = {
+				country_event = {
+					id = turkey.2 days = 3
+				}
+			}
+		}
+	}
+
+}
+
+### Future of Turkey
+
+country_event = {
+	id = turkey.2
+	title = turkey.2.t
+	desc = turkey.2.d
+
+	is_triggered_only = yes
+
+	option = { # Nihal Atsiz, national populists
+		name = turkey.2.a
+
+		ai_chance = {
+			factor = 40
+		}
+		set_politics = {
+			ruling_party = national_populist
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.3
+		}
+	}
+
+	option = { # Sefik Husnu, syndicalists
+		name = turkey.2.b
+
+		ai_chance = {
+			factor = 30
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.3
+		}
+	}
+
+	option = { # Ismet Inonu, auth dem
+		name = turkey.2.c
+
+		ai_chance = {
+			factor = 30
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.3
+		}
+	}
+
+}
+
+
+### Elections
+
+### Nationalist Turkey - Land claims
+
+country_event = {
+	id = turkey.7
+	title = turkey.7.t
+	desc = turkey.7.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = TUR
+		has_government = national_populist
+		has_war = no
+		is_subject = no
+		is_in_faction = no
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = { # We will regain the lands of our ancestors! t.Hayro :DD
+		name = turkey.7.a
+
+		add_political_power = 100
+		add_state_claim = 455
+		add_state_claim = 454
+		add_state_claim = 553
+		add_state_claim = 554
+		add_state_claim = 677
+		add_state_claim = 291
+		add_state_claim = 656
+		add_state_claim = 675
+		add_state_claim = 812
+		add_state_core = 680
+		add_state_core = 676
+		add_state_core = 819
+		add_state_claim = 754
+		add_state_claim = 915
+		add_state_claim = 753
+		add_state_claim = 453 # mideast claims
+		add_state_claim = 679
+		add_state_claim = 292
+		add_state_claim = 293
+		add_state_claim = 446
+		add_state_claim = 447
+		add_state_claim = 452
+		add_state_claim = 456
+		add_state_claim = 457
+		add_state_claim = 552
+		add_state_claim = 273
+		add_state_claim = 448
+		add_state_claim = 449
+		add_state_claim = 450
+		add_state_claim = 451
+		add_state_claim = 661
+		add_state_claim = 662
+		add_state_claim = 663
+		add_state_claim = 458
+		add_state_claim = 665
+		add_state_claim = 419
+		add_state_claim = 229
+		add_state_claim = 230
+		add_state_claim = 231
+		add_state_claim = 211
+		add_state_claim = 212
+		add_state_claim = 184
+		add_state_claim = 769
+		add_state_claim = 731
+		add_state_claim = 137
+		add_state_core = 183
+		add_state_claim = 182
+		add_state_claim = 164
+		add_state_claim = 187
+		reverse_add_opinion_modifier = {
+			target = KUR modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = EGY modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = SAU modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = PER modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = GRE modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = CYP modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = BUL modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = ARM modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = GEO modifier = tur_irredentism
+		}
+	}
+
+	option = { # We will reclaim all Turkish lands!
+		name = turkey.7.b
+
+		add_political_power = 50
+		add_state_core = 680
+		add_state_core = 676
+		add_state_core = 819
+		add_state_claim = 419
+		add_state_claim = 229
+		add_state_claim = 230
+		add_state_core = 183
+		add_state_claim = 182
+		add_state_claim = 164
+		add_state_claim = 187
+		reverse_add_opinion_modifier = {
+			target = KUR modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = EGY modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = SAU modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = PER modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = GRE modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = CYP modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = ARM modifier = tur_irredentism
+		}
+	}
+
+	option = { # We will crush the greeks!
+		name = turkey.7.c
+		trigger = {
+			GRE = {
+				OR = {
+					owns_state = 773 owns_state = 341
+				}
+			}
+		}
+
+		add_political_power = -50
+		add_state_core = 183
+		add_state_claim = 182
+		add_state_claim = 164
+		add_state_claim = 187
+		reverse_add_opinion_modifier = {
+			target = GRE modifier = tur_irredentism
+		}
+		reverse_add_opinion_modifier = {
+			target = CYP modifier = tur_irredentism
+		}
+	}
+
+	option = { # No revenge, peace!
+		name = turkey.7.e
+
+		add_political_power = -100
+		reverse_add_opinion_modifier = {
+			target = KUR modifier = tur_peaceful
+		}
+		reverse_add_opinion_modifier = {
+			target = GRE modifier = tur_peaceful
+		}
+		reverse_add_opinion_modifier = {
+			target = CYP modifier = tur_peaceful
+		}
+		reverse_add_opinion_modifier = {
+			target = ARM modifier = tur_peaceful
+		}
+	}
+
+}
+	
+### Syndicalist Elections
+
+country_event = {
+	id = turkey.8
+	title = turkey.8.t
+	desc = turkey.8.d
+	picture = GFX_bm9PdSe
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = TUR_had_first_congress
+		remove_all_ministers = yes
+		set_country_flag = TUR_had_first_congress
+	}
+	
+	option = { # Resat Fuat, totalist
+		name = turkey.8.a
+
+		ai_chance = {
+			factor = 33
+		}
+		set_politics = {
+			ruling_party = totalist
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.3
+		}
+	}
+
+	
+		name = turkey.8.e
+		hidden_effect = {
+			set_country_flag = {
+				flag = TUR_had_first_congress
+				value = 2
+			}
+		}
+	
+	option = { # Sefik Husnu, syndicalists
+		name = turkey.8.b
+
+		ai_chance = {
+			factor = 34
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.1
+		}
+	}
+
+	option = { # Hikmet Kıvılcımlı, Rad Soc
+		name = turkey.8.c
+
+		ai_chance = {
+			factor = 33
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.30
+		}
+	}
+
+}
+
+### Move Capital
+
+country_event = {
+	id = turkey.9
+	title = turkey.9.t
+	desc = turkey.9.d
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = TUR
+		has_war = no
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = { # Keep Capital at location Istanbul
+		name = turkey.9.a
+
+		add_political_power = 50
+		
+	}
+
+	option = { # Move capital to location Ankara 
+		name = turkey.9.b
+
+		add_political_power = 50
+		set_capital = 49
+	
+	}
+
+	}
+	
+	### Democratic Elections 
+	
+	country_event = {
+	id = turkey.10
+	title = turkey.10.t
+	desc = turkey.10.d
+	picture = GFX_bm9PdSe
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = TUR_had_first_election
+		remove_all_ministers = yes
+		set_country_flag = TUR_had_first_election
+	}
+	
+	option = { # Fethi Okyar, Social Liberal 
+		name = turkey.10.a
+
+		ai_chance = {
+			factor = 33
+		}
+		set_politics = {
+			ruling_party = social_liberal 
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.3
+		}
+	}
+
+	
+		name = turkey.10.e
+		hidden_effect = {
+			set_country_flag = {
+				flag = TUR_had_first_election
+				value = 2
+			}
+		}
+	
+	option = { # Yusuf Hikmet, conservatives
+		name = turkey.10.f
+
+		ai_chance = {
+			factor = 33
+		}
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.3
+		}
+	}
+
+	option = { # Ismet Inonu, Auth Dem
+		name = turkey.10.c
+
+		ai_chance = {
+			factor = 34
+		}
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.10
+		}
+	}
+
+}
+
+### Nationalist Leader
+
+country_event = {
+	id = turkey.14
+	title = turkey.14.t
+	desc = turkey.14.d
+	picture = GFX_bm9PdSe
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = TUR_has_chosen_Natleader
+		remove_all_ministers = yes
+		set_country_flag = TUR_has_chosen_Natleader
+	}
+	
+	option = { # Pasha Ismail Enver, the War hero!
+		name = turkey.14.a
+
+		ai_chance = {
+			factor = 33
+		}
+		set_politics = {
+			ruling_party = Paternal_Autocrat 
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = Paternal_Autocrat
+			popularity = 0.3
+		}
+	}
+
+	
+		name = turkey.14.e
+		hidden_effect = {
+			set_country_flag = {
+				flag = TUR_has_chosen_Natleader
+				value = 2
+			}
+		}
+	
+	option = { # Nilhal Atsiz
+		name = turkey.14.b
+
+		ai_chance = {
+			factor = 33
+		}
+		set_politics = {
+			ruling_party = National_populist
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = National_populist
+			popularity = 0.05
+			ideology = Paternal_Autocrat
+			popularity = 0.08
+		}
+	}
+	
+	}
+
+country_event = { ### Bosporus plan 
+	id = turkey.11
+	title = turkey.11.t
+	desc = turkey.11.d
+
+	is_triggered_only = yes
+
+name = turkey.10.e
+		hidden_effect = {
+			country_event = { days = 730 id = turkey.12 }
+			}
+		}
+		
+	option = { # Lets get going!
+		name = turkey.11.a
+
+		
+	}
+
+
+	}
+	
+	country_event = {
+	id = turkey.12
+	title = turkey.12.t
+	desc = turkey.12.d
+
+	is_triggered_only = yes
+
+
+	option = { # Hurray!
+		name = turkey.12.a
+
+		add_national_unity = 0.2
+		add_political_power = 200
+		
+	}
+
+
+	}
+	
+	### Railroad Plan
+	
+	country_event = {
+	id = turkey.13
+	title = turkey.13.t
+	desc = turkey.13.d
+
+	is_triggered_only = yes
+
+	option = { # Wonderful!
+		name = turkey.13.a
+
+		add_political_power = 25
+		
+	}
+
+	}
