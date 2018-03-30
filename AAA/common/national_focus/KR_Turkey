@@ -1,0 +1,1359 @@
+###########################
+# Turkey Focus Tree
+###########################
+
+focus_tree = {
+	id = Turkey_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = TUR
+		}
+	}
+	
+	default = yes
+	reset_on_civilwar = no
+
+### POLITICAL PATHS
+	focus = {
+		id = New_Beginnings
+		icon = GFX_goal_anschluss
+		available = {
+			NOT = {
+				has_war = yes
+			}
+		}
+		x = 10
+		y = 0
+		cost = 1
+		completion_reward = {
+		add_political_power = 50
+
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Syndicalist_Take_Over!
+		icon = GFX_goal_syndie_army
+		prerequisite = { focus = New_Beginnings }
+		mutually_exclusive = { focus = TUR_Nationalist_Coup focus = TUR_Democrats_Seize_Majority }
+		available = {
+			TUR = { has_government = syndicalist }	
+			is_puppet = no
+		}
+		ai_will_do = {
+		factor = 60
+
+	}
+		x = 3
+		y = 1
+		cost = 5
+		completion_reward = {
+		country_event = turkey.8
+		add_political_power = 100
+		add_popularity = { ideology = totalist popularity = 0.1 }
+		add_popularity = { ideology = radical_socialist popularity = 0.1 }
+		add_popularity = { ideology = social_democrat popularity = 0.07 }
+		
+		}
+
+	}
+
+	focus = {
+		id = TUR_Democrats_Seize_Majority
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = New_Beginnings }
+		mutually_exclusive = { focus = TUR_Syndicalist_Take_Over focus = TUR_Nationalist_Coup }
+		available = {
+			TUR = { has_government = authoritarian_democrat }	
+			is_puppet = no
+		}
+		ai_will_do = {
+		factor = 60
+
+	}
+		x = 10
+		y = 1
+		cost = 5
+		completion_reward = {
+		country_event = turkey.10
+		add_political_power = 100
+		add_popularity = { ideology = social_conservative popularity = 0.1 }
+		add_popularity = { ideology = social_liberal popularity = 0.1 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.1 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Nationalist_Coup
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = New_Beginnings }
+		mutually_exclusive = { focus = TUR_Syndicalist_Take_Over focus = TUR_Democrats_Seize_Majority }
+		available = {
+			TUR = { has_government = national_populist }
+			is_puppet = no			
+		}
+		ai_will_do = {
+		factor = 60
+
+	}
+		x = 16
+		y = 1
+		cost = 5
+		completion_reward = {
+		country_event = turkey.14
+		add_political_power = 100
+		add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.1 }
+		
+		}
+
+	}	
+
+##### SYNDICALIST POLITICAL 
+
+	focus = {
+		id = TUR_Purge_All_Non_Leftist_Parties
+		icon = GFX_goal_ideology_totalist
+		prerequisite = { focus = TUR_Syndicalist_Take_Over }
+		mutually_exclusive = { focus = TUR_Overcome_rightist_parties focus = TUR_reconcile_with_parties }
+		available = {
+			TUR = { has_government = totalist }	
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_had_first_congress
+				has_country_flag = TUR_had_first_congress
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 1
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = -100
+		add_popularity = { ideology = totalist popularity = 0.07 }
+		add_popularity = { ideology = social_liberal popularity = -0.2 }
+		add_popularity = { ideology = social_conservative popularity = -0.2 }
+		add_popularity = { ideology = authoritarian_democrat popularity = -0.2 }
+		add_popularity = { ideology = national_populist popularity = -0.2 }
+		add_popularity = { ideology = paternal_autocrat popularity = 0.2 }
+		
+		}
+
+	}
+	
+		focus = {
+		id = TUR_Overcome_rightist_parties
+		icon = GFX_goal_ideology_syndicalist
+		prerequisite = { focus = TUR_Syndicalist_Take_Over }
+		mutually_exclusive = { focus = TUR_Purge_All_Non_Leftist_Parties focus = TUR_reconcile_with_parties }
+		available = {
+			TUR = { has_government = syndicalist }	
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_had_first_congress
+				has_country_flag = TUR_had_first_congress
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 3
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = -25
+		add_popularity = { ideology = syndicalist popularity = 0.07 }
+		add_popularity = { ideology = social_liberal popularity = -0.05 }
+		add_popularity = { ideology = social_conservative popularity = -0.1 }
+		add_popularity = { ideology = authoritarian_democrat popularity = -0.1 }
+		add_popularity = { ideology = national_populist popularity = -0.1 }
+		add_popularity = { ideology = paternal_autocrat popularity = 0.2 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_reconcile_with_parties 
+		icon = GFX_goal_ideology_radical_socialist
+		prerequisite = { focus = TUR_Syndicalist_Take_Over }
+		mutually_exclusive = { focus = TUR_Purge_All_Non_Leftist_Parties focus = TUR_Overcome_rightist_parties }
+		available = {
+			TUR = { has_government = radical_socialist }	
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_had_first_congress
+				has_country_flag = TUR_had_first_congress
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 5
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = -10
+		add_popularity = { ideology = radical_socialist popularity = 0.07 }
+		add_popularity = { ideology = social_liberal popularity = 0.10 }
+		add_popularity = { ideology = social_conservative popularity = -0.1 }
+		add_popularity = { ideology = authoritarian_democrat popularity = -0.2 }
+		add_popularity = { ideology = national_populist popularity = -0.1 }
+		add_popularity = { ideology = paternal_autocrat popularity = 0.20 }
+		add_popularity = { ideology = social_democrat popularity = 0.05 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = Declare_the_Syndicalist_Caliphate
+		icon = GFX_goal_anarcho_communism
+		prerequisite = { focus = TUR_consolidate_Turkey focus = TUR_unify_the_people focus = TUR_turkey_reformed }
+		x = 3
+		y = 7
+		cost = 10
+		completion_reward = {
+		add_political_power = 200
+		add_stability = 0.1
+
+		}
+
+	}
+	
+	### TOTALIST ROUTE
+	
+	focus = {
+		id = TUR_radically_secularize_the_masses
+		icon = GFX_goal_commune_politics
+		prerequisite = { focus = TUR_Purge_All_Non_Leftist_Parties }
+		available = {
+			TUR = { has_government = totalist }	
+			is_puppet = no
+		}
+		x = 1
+		y = 3
+		cost = 10
+		completion_reward = {
+		add_stability = -0.1
+		add_political_power = -50
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Eradicate_the_upper_class
+		icon = GFX_focus_rom_handle_king
+		prerequisite = { focus = TUR_radically_secularize_the_masses }
+		available = {
+			TUR = { has_government = totalist }	
+			is_puppet = no
+		}
+		x = 1
+		y = 4
+		cost = 10
+		completion_reward = {
+		add_stability = -0.07
+		add_political_power = 75
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_destroying_the_monacrhist
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = { focus = TUR_Eradicate_the_upper_class }
+		available = {
+			TUR = { has_government = totalist }	
+			is_puppet = no
+	
+		}
+		x = 1
+		y = 5
+		cost = 10
+		completion_reward = {
+		custom_effect_tooltip = tur_CivilWar_tt
+		add_stability = -0.2
+		add_political_power = -125
+		add_popularity = { ideology = paternal_autocrat popularity = -0.30 }		
+		
+		}
+
+	}
+	
+		focus = {
+		id = TUR_consolidate_Turkey
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = TUR_destroying_the_monacrhist }
+		available = {
+			OR = {
+			TUR = { has_government = syndicalist }
+			TUR = { has_government = totalist }	
+			} 
+			NOT = {
+				has_war = yes
+				is_subject = yes
+			}
+		}
+		x = 1
+		y = 6
+		cost = 10
+		completion_reward = {
+		remove_ideas = TUR_Ottoman_Legacy
+		add_stability = 0.5
+		
+		}
+
+	}
+	
+	### SYNDICALIST ROUTE
+	
+	focus = {
+		id = TUR_Unite_The_Working_Ummah
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { focus = TUR_Overcome_rightist_parties }
+		available = {
+			TUR = { has_government = syndicalist }	
+			is_puppet = no
+		}
+		x = 3
+		y = 3
+		cost = 10
+		completion_reward = {
+		add_political_power = -15
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_spreading_the_wealth
+		icon = GFX_focus_rom_abdicate
+		prerequisite = { focus = TUR_Unite_The_Working_Ummah }
+		available = {
+			TUR = { has_government = syndicalist }	
+			is_puppet = no
+		}
+		x = 3
+		y = 4
+		cost = 10
+		completion_reward = {
+		add_stability = -0.05
+		add_political_power = -10
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_banning_the_monarchist_party
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = { focus = TUR_spreading_the_wealth }
+		available = {
+			TUR = { has_government = syndicalist }	
+			is_puppet = no
+		}
+		x = 3
+		y = 5
+		cost = 10
+		completion_reward = {
+		add_stability = -0.10
+		add_political_power = -85
+		add_popularity = { ideology = paternal_autocrat popularity = -0.30 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_unify_the_people
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = TUR_banning_the_monarchist_party }
+		available = {
+			TUR = { has_government = syndicalist }	
+			NOT = {
+				has_war = yes
+				is_subject = yes
+			}
+		}
+		x = 3
+		y = 6
+		cost = 10
+		completion_reward = {
+		remove_ideas = TUR_Ottoman_Legacy
+		add_stability = 0.4
+		add_political_power = 150
+		
+		}
+
+	}
+	
+	### RADICAL SOCIALIST ROUTE
+	
+	focus = {
+		id = TUR_Embrace_Mutazila_school_of_thought
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = TUR_reconcile_with_parties }
+		available = {
+			TUR = { has_government = radical_socialist }	
+			is_puppet = no
+		}
+		x = 5
+		y = 3
+		cost = 10
+		completion_reward = {
+		add_political_power = 10
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Every_Man_A_Sultan
+		icon = GFX_focus_rom_parties_end
+		prerequisite = { focus = TUR_Embrace_Mutazila_school_of_thought }
+		available = {
+			TUR = { has_government = radical_socialist }	
+			is_puppet = no
+		}
+		x = 5
+		y = 4
+		cost = 10
+		completion_reward = {
+		add_political_power = 10
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_overcome_our_differences
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = TUR_Every_Man_A_Sultan }
+		available = {
+			TUR = { has_government = radical_socialist }	
+			is_puppet = no
+		}
+		x = 5
+		y = 5
+		cost = 10
+		completion_reward = {
+		add_stability = -0.05
+		add_political_power = -50
+		add_popularity = { ideology = paternal_autocrat popularity = -0.30 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_turkey_reformed!
+		icon = GFX_goal_generic_improve_relations
+		prerequisite = { focus = TUR_overcome_our_differences }
+		available = {
+			TUR = { has_government = radical_socialist }	
+			NOT = {
+				has_war = yes
+				is_subject = yes
+			}
+		}
+		x = 5
+		y = 6
+		cost = 10
+		completion_reward = {
+		remove_ideas = TUR_Ottoman_Legacy
+		add_stability = 0.3
+		add_political_power = 100
+		
+		}
+
+	}
+	
+	### DEMOCRATIC POLITICAL
+	
+	focus = {
+		id = TUR_Liberal_Victory 
+		icon = GFX_goal_ideology_social_liberal
+		prerequisite = { focus = TUR_Democrats_Seize_Majority }
+		mutually_exclusive = { focus = TUR_Authoritarian_victory focus = TUR_Conservative_victory }
+		available = {
+			TUR = { has_government = social_liberal }	
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_had_first_election
+				has_country_flag = TUR_had_first_election
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 8
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = 25
+		add_popularity = { ideology = Social_Liberal popularity = 0.1 }
+		add_popularity = { ideology = Social_democrat popularity = 0.05 }
+		add_popularity = { ideology = social_conservative popularity = 0.05 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+		add_popularity = { ideology = national_populist popularity = -0.2 }
+		add_popularity = { ideology = paternal_autocrat popularity = 0.17 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Authoritarian_victory 
+		icon = GFX_goal_authoritarian
+		prerequisite = { focus = TUR_Democrats_Seize_Majority }
+		mutually_exclusive = { focus = TUR_Liberal_Victory focus = TUR_Conservative_victory }
+		available = {
+			TUR = { has_government = authoritarian_democrat }	
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_had_first_election
+				has_country_flag = TUR_had_first_election
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 10
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = 25
+		add_popularity = { ideology = Social_Liberal popularity = 0.05 }
+		add_popularity = { ideology = Social_democrat popularity = 0.05 }
+		add_popularity = { ideology = social_conservative popularity = 0.05 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.1 }
+		add_popularity = { ideology = national_populist popularity = -0.2 }
+		add_popularity = { ideology = paternal_autocrat popularity = 0.17 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Conservative_victory 
+		icon = GFX_goal_ideology_social_conservative
+		prerequisite = { focus = TUR_Democrats_Seize_Majority }
+		mutually_exclusive = { focus = TUR_Liberal_Victory focus = TUR_Authoritarian_victory }
+		available = {
+			TUR = { has_government = social_conservative }	
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_had_first_election
+				has_country_flag = TUR_had_first_election
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 12
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = 25
+		add_popularity = { ideology = Social_Liberal popularity = 0.05 }
+		add_popularity = { ideology = social_conservative popularity = 0.10 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+		add_popularity = { ideology = national_populist popularity = -0.2 }
+		add_popularity = { ideology = Social_democrat popularity = 0.05 }
+		add_popularity = { ideology = paternal_autocrat popularity = 0.17 }
+		
+		}
+
+	}
+	
+	### Conservative ROUTE
+	
+	focus = {
+		id = TUR_The_Turkish_Way
+		icon = GFX_goal_liberty
+		prerequisite = { focus = TUR_Conservative_victory }
+		available = {
+			TUR = { has_government = social_conservative }	
+			is_puppet = no
+		}
+		x = 12
+		y = 3
+		cost = 10
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 50
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Halk_için
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = TUR_The_Turkish_Way }
+		available = {
+			TUR = { has_government = social_conservative }	
+			is_puppet = no
+		}
+		x = 12
+		y = 4
+		cost = 10
+		completion_reward = {
+		add_political_power = 5
+		add_ideas = TUR_Halk_için_idea
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Encourage_growing_industries
+		icon = GFX_focus_generic_the_giant_wakes
+		prerequisite = { focus = TUR_Halk_için }
+		available = {
+			TUR = { has_government = social_conservative }	
+			is_puppet = no
+		}
+		x = 12
+		y = 5
+		cost = 10
+		completion_reward = {
+		add_political_power = 50
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+  
+	
+	focus = {
+		id = TUR_Encourage_democracy
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = TUR_Encourage_growing_industries }
+		available = {
+			TUR = { has_government = social_conservative }	
+			is_puppet = no
+		}
+		x = 12
+		y = 6
+		cost = 10
+		completion_reward = {
+		add_stability = 0.1
+		add_political_power = 50
+		add_popularity = { ideology = Social_democrat popularity = 0.10 }
+		add_popularity = { ideology = social_liberal popularity = 0.10 }
+		add_popularity = { ideology = social_conservative popularity = 0.15 }
+		remove_ideas = TUR_Ottoman_Legacy
+		}
+
+	}
+	
+	
+	#### NATIONALIST POLTICAL PATH
+	
+	focus = {
+		id = TUR_A_New_Khan
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = TUR_Nationalist_Coup }
+		available = {
+			TUR = { has_government = paternal_autocrat }		
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_has_chosen_Natleader
+				has_country_flag = TUR_has_chosen_Natleader
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 15
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = 25
+		add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+		add_popularity = { ideology = social_liberal popularity = 0.02 }
+		add_popularity = { ideology = social_conservative popularity = 0.02 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.1 }
+		add_popularity = { ideology = national_populist popularity = -0.25 }
+		add_popularity = { ideology = Syndicalist popularity = 0.15 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_Atsiz_Takes_power
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = TUR_Nationalist_Coup }
+		available = {
+			TUR = { has_government = national_populist }	
+			is_puppet = no
+			custom_trigger_tooltip = {
+				tooltip = TUR_has_chosen_Natleader
+				has_country_flag = TUR_has_chosen_Natleader
+			}
+		}
+		ai_will_do = {
+		factor = 80
+
+	}
+		x = 17
+		y = 2
+		cost = 10
+		completion_reward = {
+		add_political_power = -25
+		add_popularity = { ideology = paternal_autocrat popularity = -0.25 }
+		add_popularity = { ideology = social_liberal popularity = 0.02 }
+		add_popularity = { ideology = social_conservative popularity = 0.02 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.1 }
+		add_popularity = { ideology = national_populist popularity = 0.05 }
+		add_popularity = { ideology = Syndicalist popularity = 0.15 }
+		
+		}
+
+	}
+	
+	focus = {
+		id = TUR_The_Turkish_Economy
+		icon = GFX_goal_generic_production
+		available = {
+			TUR = { has_completed_focus = New_Beginnings }
+		}
+	ai_will_do = {
+		factor = 30
+
+	}
+		x = 24
+		y = 0
+		cost = 10
+		completion_reward = {
+		add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+
+	}
+	
+	##### Economy Starts 
+	
+	focus = {
+		id = TUR_The_Bosporus_plan
+		icon = GFX_goal_RUS_Force_the_Straits
+		prerequisite = { focus = TUR_The_Turkish_Economy }
+		ai_will_do = {
+		factor = 45
+
+	}
+		x = 24
+		y = 1
+		cost = 5
+		completion_reward = {
+		country_event = turkey.11
+	
+		}
+
+	}
+	
+	focus = {
+		id = Expand_Civilian_Industries
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = TUR_The_Turkish_Economy }
+		ai_will_do = {
+		factor = 35
+
+	}
+		x = 22
+		y = 1
+		cost = 10
+		completion_reward = {
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	focus = {
+		id = The_Grand_Turkish_Railroad_Plan
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = TUR_The_Turkish_Economy }
+		x = 26
+		y = 1
+		cost = 10
+		completion_reward = {
+		country_event = turkey.13
+			341 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			773 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+		}
+		
+			774 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+			
+			}
+			
+			347 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+	
+			49 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	### FACTORY FOCUSES
+	
+	focus = {
+		id = Expand_Military_Industries
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = Expand_Civilian_Industries }
+		x = 22
+		y = 2
+		cost = 10
+		completion_reward = {
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	focus = {
+		id = Further_Expand_Civilian_Industries
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = Expand_Military_Industries }
+		x = 22
+		y = 3
+		cost = 10
+		completion_reward = {
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	focus = {
+		id = Further_Military_Industrial_Exspansion
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = Further_Expand_Civilian_Industries }
+		x = 22
+		y = 4
+		cost = 10
+		completion_reward = {
+		random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	### RAILROAD FOCUSES
+	
+	focus = {
+		id = The_Ankara_To_Izmit
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = The_Grand_Turkish_Railroad_Plan }
+		x = 26
+		y = 2
+		cost = 10
+		completion_reward = {
+			340 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			339 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+	
+			343 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+	
+			342 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	focus = {
+		id = The_Antalya_to_Adana
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = The_Ankara_To_Izmit }
+		x = 26
+		y = 3
+		cost = 10
+		completion_reward = {
+			345 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			344 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+	
+			348 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+		
+		}
+
+	}
+	
+			346 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	focus = {
+		id = The_Adana_to_Trabzon
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = The_Antalya_to_Adana }
+		x = 26
+		y = 4
+		cost = 10
+		completion_reward = {
+			349 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			355 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+	
+			354 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+	
+			353 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+		
+		}
+
+	}
+		
+		}
+
+	}
+	
+	
+	##### NATIONALIST OPTIONS 
+	
+	
+	
+	##### FOREIGN POLICY
+	
+	focus = {
+		id = TUR_Forign_Policy_Syndicalist
+		icon = GFX_goal_syndie_smash
+		x = 8
+		y = 9
+		cost = 1
+		completion_reward = {
+		add_political_power = 75
+
+		}
+
+	}
