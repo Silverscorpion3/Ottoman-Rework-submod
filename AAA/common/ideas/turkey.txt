@@ -1,0 +1,49 @@
+ideas = {
+
+### Country Ideas 
+
+	country = {
+        TUR_Ottoman_Legacy = {
+		            allowed = {
+                always = no
+            }
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+            picture = raj_marginalized_muslim_community
+            modifier = {				
+				political_power_cost = 0.25
+				add_stability = -0.05
+				conscription_factor = -0.05
+            }
+        }
+		
+		
+		TUR_Halk için_idea = {
+		
+			allowed = {
+				always = no
+			}
+		available = {
+			TUR = { has_completed_focus = TUR_Halk_için }
+		}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			picture = generic_democratic_drift_bonus
+			
+			modifier = {
+				conscription = 0.02
+			}
+			
+		}
+		
+	}	
+
+ }	
+					

@@ -1,0 +1,178 @@
+# Eid-ul Fitr (every single event, for all relevant tags)
+
+country_event = {
+	id = holi.1
+	title = holi.1.t
+	desc = {
+		trigger = {
+			NOT = { has_government = radical_socialist }
+			NOT = { has_government = syndicalist }
+			NOT = { has_government = totalist } 
+			NOT = { tag = OTT }
+			NOT = { tag = EGY }
+			}
+		text = holi.1.d1
+	}
+	desc = {
+	trigger = {
+		NOT = { has_government = radical_socialist }
+		NOT = { has_government = syndicalist }
+		NOT = { has_government = totalist }
+		tag = OTT
+		} 
+		text = holi.1.d2
+	}
+	desc = {
+		trigger = {
+			NOT = { has_government = radical_socialist }
+			NOT = { has_government = syndicalist }
+			NOT = { has_government = totalist }
+			tag = EGY
+			}
+		text = holi.1.d3
+	}
+	desc = {
+		trigger = {
+		OR = {
+			has_government = totalist 
+				}
+			}		
+		text = holi.1.d4
+	}
+	desc = {
+		trigger = {
+		OR = {
+			has_government = radical_socialist 
+			has_government = syndicalist  
+				}
+			}		
+		text = holi.1.d5
+	}
+
+	is_triggered_only = yes
+	# First on 15 December 1936, then reoccurs every 354 days
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = holi.1
+				days = 354
+			}
+		}
+	}
+	option = {
+		name = holi.1.a
+		trigger = {
+			AND = {
+		OR = {
+			tag = EGY 
+			tag = IKH 
+			tag = OTT 
+			tag = PER 
+			tag = TRK 
+			}
+			NOT = { has_government = radical_socialist }
+			NOT = { has_government = syndicalist }
+			NOT = { has_government = totalist }
+			}
+			}
+	add_political_power = 20
+	}
+	option = {
+		name = holi.1.a
+		trigger = {
+		AND = {
+		OR = {
+			tag = AFG 
+			tag = ALG
+			tag = ALO
+			tag = INS 
+			tag = HAU 
+			tag = KUR 
+			tag = IRQ 
+			tag = JBS 
+			tag = JOR 
+			tag = MOR 
+			tag = SAU 
+			tag = SOM 
+			tag = SYR 
+			tag = TUR 
+			}
+			NOT = { has_government = radical_socialist }
+			NOT = { has_government = syndicalist }
+			NOT = { has_government = totalist }
+			}
+			}
+	add_political_power = 10
+	}
+		option = {
+		name = holi.1.a
+		trigger = {
+		AND = {
+		OR = {
+			tag = ALB 
+			tag = AZB 
+			tag = BFA 
+			tag = BLR 
+			tag = BOR 
+			tag = CIV 
+			tag = GNE 
+			tag = KYR 
+			tag = LYB 
+			tag = MAL 
+			tag = MLY 
+			tag = MRT 
+			tag = OMA 
+			tag = PAL 
+			tag = PAK  
+			tag = SEN 
+			tag = SIE 
+			tag = SIK 
+			tag = SUD 
+			tag = TAJ 
+			tag = TUA 
+			tag = TUN  
+			tag = UZB 
+			tag = WAD  
+			tag = YEM 
+			}
+			NOT = { has_government = radical_socialist }
+			NOT = { has_government = syndicalist }
+			NOT = { has_government = totalist }
+			}
+			}
+	add_political_power = 5
+	}
+	option = {
+		name = holi.1.a
+		trigger = {
+		AND = {
+		OR = {
+			tag = BHC
+			tag = BOS 
+			tag = PRF
+			tag = SAR
+			}
+			NOT = { has_government = radical_socialist }
+			NOT = { has_government = syndicalist }
+			NOT = { has_government = totalist }
+				}
+			} 
+	}
+	option = {
+		name = holi.1.b
+		trigger = {
+			has_government = totalist 
+			} 
+	add_political_power = -5
+	}
+	option = {
+		name = holi.1.c
+		trigger = {
+		OR = {
+			has_government = radical_socialist 
+			has_government = syndicalist 
+				}
+			} 
+	}
+}

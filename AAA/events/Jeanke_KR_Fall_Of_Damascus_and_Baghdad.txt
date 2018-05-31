@@ -1,0 +1,148 @@
+### Fall of Damascus and Baghdad for Jeanke
+
+# The Fall of Damascus
+news_event = {
+	id = worldnews.284
+	immediate = {log = "[GetDateText]: [Root.GetName]: event worldnews.284"}
+	title = worldnews.283.t
+	picture = GFX_bagdad
+	desc = worldnews.283.d
+
+	major = yes
+	is_triggered_only = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	immediate = {
+		459 = { set_state_flag = state_has_fallen }
+		FROM.FROM = { save_event_target_as = old_controller }
+		ROOT = { save_event_target_as = new_controller }
+	}
+
+
+	option = { #We can't allow for the bastion of Muslim unity fall! 
+		name = worldnews.284.a.Ottoman
+		trigger = {
+			tag = event_target:old_controller
+			event_target:new_controller = OR {
+			{ tag = EGY } 
+			{ tag = SAU }
+			 { tag = JBS }
+			  { tag = PER }}
+		}
+	}
+	option = { #Is this the end of our Grand Empire?
+		name = worldnews.284.a
+		trigger = {
+			tag = event_target:old_controller
+			event_target:new_controller = { NOT = 			OR {
+			{ tag = EGY } 
+			{ tag = SAU }
+			 { tag = JBS }
+			  { tag = PER }} }
+		}
+	}
+
+	option = { #Soon this sick empire will fall!
+		name = worldnews.284.b
+		trigger = {
+			tag = event_target:new_controller
+		}
+	}
+
+	option = { # A new Arab regime rises
+		name = worldnews.283.c.Ottoman
+		trigger = {
+			event_target:new_controller = OR {
+			{ tag = EGY } 
+			{ tag = SAU }
+			 { tag = JBS }
+			  { tag = PER }}
+			NOT = {
+				tag = event_target:new_controller
+			}
+		}
+	}
+
+	option = { #The old France is dying
+		name = worldnews.283.c
+		trigger = {
+			event_target:new_controller = { NOT = 
+			OR {
+			{ tag = EGY } 
+			{ tag = SAU }
+			 { tag = JBS }
+			  { tag = PER }}
+			}
+			NOT = {
+				tag = event_target:new_controller
+			}
+		}
+	}
+	
+	# The Fall of Baghdad
+news_event = {
+	id = worldnews.285
+	immediate = {log = "[GetDateText]: [Root.GetName]: event worldnews.285"}
+	title = worldnews.283.t
+	picture = GFX_T.E.-Lawrence-in-Damascus
+	desc = worldnews.283.d
+
+	major = yes
+	is_triggered_only = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	immediate = {
+		459 = { set_state_flag = state_has_fallen }
+		FROM.FROM = { save_event_target_as = old_controller }
+		ROOT = { save_event_target_as = new_controller }
+	}
+
+
+	option = { #We can't let the Communards destroy the last bastion of the True France!
+		name = worldnews.285.a.Ottoman
+		trigger = {
+			tag = event_target:old_controller
+			event_target:new_controller = { tag = FRA }
+		}
+	}
+	option = { #Is this the end of our dream of reconquest?
+		name = worldnews.283.a
+		trigger = {
+			tag = event_target:old_controller
+			event_target:new_controller = { NOT = { tag = FRA } }
+		}
+	}
+
+	option = { #The Algiers regime will never cause trouble again
+		name = worldnews.283.b
+		trigger = {
+			tag = event_target:new_controller
+		}
+	}
+
+	option = { #Looks like the Communards finished their revolution
+		name = worldnews.283.c.commune
+		trigger = {
+			event_target:new_controller = { tag = FRA }
+			NOT = {
+				tag = event_target:new_controller
+			}
+		}
+	}
+
+	option = { #The old France is dying
+		name = worldnews.283.c
+		trigger = {
+			event_target:new_controller = { NOT = { tag = FRA } }
+			NOT = {
+				tag = event_target:new_controller
+			}
+		}
+	}
+   }
